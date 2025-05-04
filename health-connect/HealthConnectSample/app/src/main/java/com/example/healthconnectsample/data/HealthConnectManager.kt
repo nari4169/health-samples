@@ -126,10 +126,10 @@ class HealthConnectManager(private val context: Context) {
     }
 
     /**
-     * Obtains a list of [ExerciseSessionRecord]s in a specified time frame. An Exercise Session Record is a
-     * period of time given to an activity, that would make sense to a user, e.g. "Afternoon run"
-     * etc. It does not necessarily mean, however, that the user was *running* for that entire time,
-     * more that conceptually, this was the activity being undertaken.
+     * 지정된 기간 동안 [ExerciseSessionRecord] 목록을 가져옵니다. 운동 세션 기록은
+     * 사용자에게 의미 있는 활동의 시간 단위입니다(예: "오후 달리기").
+     * 하지만 이는 사용자가 해당 시간 동안 *달렸다는* 것을 반드시 의미하는 것은 아닙니다.
+     * 개념적으로는 해당 활동이 수행되었다는 것을 의미합니다.
      */
     suspend fun readExerciseSessions(start: Instant, end: Instant): List<ExerciseSessionRecord> {
         val request = ReadRecordsRequest(
@@ -141,8 +141,8 @@ class HealthConnectManager(private val context: Context) {
     }
 
     /**
-     * Writes an [ExerciseSessionRecord] to Health Connect, and additionally writes underlying data for
-     * the session too, such as [StepsRecord], [DistanceRecord] etc.
+     * Health Connect에 [ExerciseSessionRecord]를 작성하고,
+     * [StepsRecord], [DistanceRecord] 등과 같은 세션의 기본 데이터도 작성합니다.
      */
     suspend fun writeExerciseSession(
         start: ZonedDateTime,

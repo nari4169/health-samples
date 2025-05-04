@@ -61,5 +61,4 @@ fun SettingsScreen(
             Text(text = stringResource(id = R.string.disconnect))
         }
     }
-
 }

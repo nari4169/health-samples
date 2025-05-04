@@ -46,13 +46,13 @@ const val TAG = "Health Connect sample"
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HealthConnectApp(healthConnectManager: HealthConnectManager) {
+
     HealthConnectTheme {
         val scaffoldState = rememberScaffoldState()
         val navController = rememberNavController()
         val scope = rememberCoroutineScope()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
-
         val availability by healthConnectManager.availability
 
         Scaffold(
@@ -98,8 +98,8 @@ fun HealthConnectApp(healthConnectManager: HealthConnectManager) {
             },
             snackbarHost = {
                 SnackbarHost(it) { data -> Snackbar(snackbarData = data) }
-            }
-        ) {
+            },
+        ) { innerPadding ->
             HealthConnectNavigation(
                 healthConnectManager = healthConnectManager,
                 navController = navController,

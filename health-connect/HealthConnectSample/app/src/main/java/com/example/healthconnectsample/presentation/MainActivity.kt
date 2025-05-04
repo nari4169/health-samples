@@ -18,6 +18,11 @@ package com.example.healthconnectsample.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Surface
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 /**
  * The entry point into the sample.
@@ -29,7 +34,9 @@ class MainActivity : ComponentActivity() {
         val healthConnectManager = (application as BaseApplication).healthConnectManager
 
         setContent {
-            HealthConnectApp(healthConnectManager = healthConnectManager)
+            Surface ( modifier = Modifier.padding(20.dp)) {
+                HealthConnectApp(healthConnectManager = healthConnectManager)
+            }
         }
     }
 }
